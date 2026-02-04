@@ -13,13 +13,13 @@ export default class ObsidianMDX extends Plugin {
         _editor: Editor,
         view: MarkdownView
       ) => {
-        if (['mdx', 'md'].includes(view.file.extension)) {
+        if (view.file && ['mdx', 'md'].includes(view.file.extension)) {
           if (!checking) {
             this.app.workspace.detachLeavesOfType(MDX_PREVIEW)
             const leaf = this.app.workspace.getLeaf('tab')
             const viewState: MDXPreviewState = {
               data: view.data,
-              basename: view.file.basename,
+              basename: view.file!.basename,
             }
             leaf.setViewState({
               type: MDX_PREVIEW,

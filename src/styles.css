@@ -1,12 +1,571 @@
 @import '@code-hike/mdx/styles';
 
+/* ========== Base Markdown Styles ========== */
 .yuleicul-obsidian-mdx {
   max-width: var(--file-line-width);
   margin-left: auto;
   margin-right: auto;
   overflow-wrap: break-word;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-normal);
 }
 
+/* Headings */
+.yuleicul-obsidian-mdx h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin: 2rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--background-modifier-border);
+  letter-spacing: -0.02em;
+}
+
+.yuleicul-obsidian-mdx h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--background-modifier-border);
+  letter-spacing: -0.01em;
+}
+
+.yuleicul-obsidian-mdx h3 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.yuleicul-obsidian-mdx h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.yuleicul-obsidian-mdx h5,
+.yuleicul-obsidian-mdx h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+}
+
+/* Paragraph */
+.yuleicul-obsidian-mdx p {
+  margin: 1rem 0;
+}
+
+/* Links */
+.yuleicul-obsidian-mdx a {
+  color: var(--text-accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.yuleicul-obsidian-mdx a:hover {
+  border-bottom-color: var(--text-accent);
+}
+
+/* Lists */
+.yuleicul-obsidian-mdx ul,
+.yuleicul-obsidian-mdx ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.yuleicul-obsidian-mdx li {
+  margin: 0.375rem 0;
+}
+
+.yuleicul-obsidian-mdx ul ul,
+.yuleicul-obsidian-mdx ol ol,
+.yuleicul-obsidian-mdx ul ol,
+.yuleicul-obsidian-mdx ol ul {
+  margin: 0.25rem 0;
+}
+
+/* Blockquote */
+.yuleicul-obsidian-mdx blockquote {
+  margin: 1.5rem 0;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--blockquote-border-color, var(--background-modifier-border));
+  background-color: var(--blockquote-background, var(--background-secondary));
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.yuleicul-obsidian-mdx blockquote > *:first-child {
+  margin-top: 0;
+}
+
+.yuleicul-obsidian-mdx blockquote > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Code */
 .yuleicul-obsidian-mdx code {
   font-family: var(--font-monospace);
+  font-size: 0.875em;
+  padding: 0.2em 0.4em;
+  background-color: var(--code-background, var(--background-secondary));
+  border-radius: 4px;
+  color: var(--code-normal);
+}
+
+.yuleicul-obsidian-mdx pre {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: var(--code-background, var(--background-secondary));
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.yuleicul-obsidian-mdx pre code {
+  padding: 0;
+  background-color: transparent;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+/* Tables */
+.yuleicul-obsidian-mdx table {
+  width: 100%;
+  margin: 1.5rem 0;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.yuleicul-obsidian-mdx th,
+.yuleicul-obsidian-mdx td {
+  padding: 0.75rem;
+  border: 1px solid var(--background-modifier-border);
+  text-align: left;
+}
+
+.yuleicul-obsidian-mdx th {
+  background-color: var(--background-secondary);
+  font-weight: 600;
+}
+
+.yuleicul-obsidian-mdx tr:nth-child(even) {
+  background-color: var(--background-secondary-alt, var(--background-secondary));
+}
+
+/* Horizontal Rule */
+.yuleicul-obsidian-mdx hr {
+  margin: 2rem 0;
+  border: none;
+  border-top: 1px solid var(--background-modifier-border);
+}
+
+/* Strong & Emphasis */
+.yuleicul-obsidian-mdx strong {
+  font-weight: 600;
+  color: var(--text-normal);
+}
+
+.yuleicul-obsidian-mdx em {
+  font-style: italic;
+}
+
+/* Images */
+.yuleicul-obsidian-mdx img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+/* ========== Error Display ========== */
+.obsidian-mdx-error {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: rgba(var(--callout-error), 0.1);
+  border: 1px solid rgba(var(--callout-error), 0.3);
+  border-radius: 8px;
+  border-left: 4px solid rgb(var(--callout-error));
+}
+
+.obsidian-mdx-error h3 {
+  margin: 0 0 0.75rem 0;
+  color: rgb(var(--callout-error));
+  font-size: 1rem;
+}
+
+.obsidian-mdx-error pre {
+  margin: 0;
+  padding: 0.75rem;
+  background-color: var(--background-secondary);
+  border-radius: 4px;
+  font-family: var(--font-monospace);
+  font-size: 0.85rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--text-normal);
+}
+
+/* ========== Callout (Nextra Style) ========== */
+.obsidian-mdx-callout {
+  margin: 1.5rem 0;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border: 1px solid;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.obsidian-mdx-callout-emoji {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  flex-shrink: 0;
+  user-select: none;
+  margin-top: 0;
+}
+
+.obsidian-mdx-callout-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-normal);
+}
+
+.obsidian-mdx-callout-content {
+  color: var(--text-normal);
+  flex: 1;
+}
+
+.obsidian-mdx-callout-content > *:first-child {
+  margin-top: 0;
+}
+
+.obsidian-mdx-callout-content > *:last-child {
+  margin-bottom: 0;
+}
+
+.obsidian-mdx-callout-content p {
+  margin: 0;
+}
+
+/* Callout variants - Nextra colors */
+.obsidian-mdx-callout-default {
+  background-color: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: rgb(16, 185, 129);
+}
+
+.theme-dark .obsidian-mdx-callout-default {
+  background-color: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: rgb(52, 211, 153);
+}
+
+.obsidian-mdx-callout-info {
+  background-color: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: rgb(37, 99, 235);
+}
+
+.theme-dark .obsidian-mdx-callout-info {
+  background-color: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.4);
+  color: rgb(96, 165, 250);
+}
+
+.obsidian-mdx-callout-warning {
+  background-color: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.3);
+  color: rgb(217, 119, 6);
+}
+
+.theme-dark .obsidian-mdx-callout-warning {
+  background-color: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: rgb(251, 191, 36);
+}
+
+.obsidian-mdx-callout-error {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: rgb(220, 38, 38);
+}
+
+.theme-dark .obsidian-mdx-callout-error {
+  background-color: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: rgb(248, 113, 113);
+}
+
+.obsidian-mdx-callout-success {
+  background-color: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.3);
+  color: rgb(22, 163, 74);
+}
+
+.theme-dark .obsidian-mdx-callout-success {
+  background-color: rgba(34, 197, 94, 0.15);
+  border-color: rgba(34, 197, 94, 0.4);
+  color: rgb(74, 222, 128);
+}
+
+/* Callout text color override */
+.obsidian-mdx-callout .obsidian-mdx-callout-content {
+  color: inherit;
+}
+
+/* Callout color fallback */
+:root {
+  --callout-default: 148, 163, 184;
+  --callout-info: 96, 165, 250;
+  --callout-warning: 251, 191, 36;
+  --callout-error: 248, 113, 113;
+  --callout-success: 74, 222, 128;
+}
+
+/* ========== Tabs (Nextra Style) ========== */
+.obsidian-mdx-tabs {
+  margin: 1.5rem 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--background-modifier-border);
+}
+
+.obsidian-mdx-tabs-list {
+  display: flex;
+  background-color: var(--background-secondary);
+  border-bottom: 1px solid var(--background-modifier-border);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.obsidian-mdx-tabs-list::-webkit-scrollbar {
+  display: none;
+}
+
+.obsidian-mdx-tab {
+  padding: 0.625rem 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  transition: all 0.15s;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.obsidian-mdx-tab:hover {
+  color: var(--text-normal);
+  background-color: var(--background-modifier-hover);
+}
+
+.obsidian-mdx-tab-active {
+  color: var(--text-accent);
+  background-color: var(--background-primary);
+  box-shadow: inset 0 -2px 0 0 var(--text-accent);
+}
+
+.obsidian-mdx-tabs-content {
+  padding: 1rem;
+  background-color: var(--background-primary);
+}
+
+.obsidian-mdx-tab-panel {
+  animation: fadeIn 0.15s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(2px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== Cards ========== */
+.obsidian-mdx-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.obsidian-mdx-card {
+  padding: 1.25rem;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  background-color: var(--background-primary);
+  transition: all 0.2s ease;
+}
+
+.obsidian-mdx-card:hover {
+  border-color: var(--background-modifier-border-hover);
+}
+
+.obsidian-mdx-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.obsidian-mdx-card-link:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+  border-color: var(--text-accent);
+}
+
+.obsidian-mdx-card-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.obsidian-mdx-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: var(--text-normal);
+}
+
+.obsidian-mdx-card-content {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.obsidian-mdx-card-content > *:first-child {
+  margin-top: 0;
+}
+
+.obsidian-mdx-card-content > *:last-child {
+  margin-bottom: 0;
+}
+
+/* ========== Steps ========== */
+.obsidian-mdx-steps {
+  margin: 1.5rem 0;
+  counter-reset: step;
+}
+
+.obsidian-mdx-step {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  position: relative;
+}
+
+.obsidian-mdx-step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 36px;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--background-modifier-border);
+  border-radius: 1px;
+}
+
+.obsidian-mdx-step-marker {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--text-accent);
+  color: var(--text-on-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  counter-increment: step;
+  box-shadow: 0 0 0 4px var(--background-primary);
+}
+
+.obsidian-mdx-step-marker::before {
+  content: counter(step);
+}
+
+.obsidian-mdx-step-content {
+  flex: 1;
+  padding-top: 0.375rem;
+}
+
+.obsidian-mdx-step-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: var(--text-normal);
+}
+
+.obsidian-mdx-step-body {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-normal);
+}
+
+.obsidian-mdx-step-body > *:first-child {
+  margin-top: 0;
+}
+
+.obsidian-mdx-step-body > *:last-child {
+  margin-bottom: 0;
+}
+
+/* ========== FileTree ========== */
+.obsidian-mdx-filetree {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: var(--background-secondary);
+  border-radius: 8px;
+  font-family: var(--font-monospace);
+  font-size: 0.875rem;
+  border: 1px solid var(--background-modifier-border);
+}
+
+.obsidian-mdx-filetree-content {
+  line-height: 1.8;
+}
+
+.obsidian-mdx-filetree-folder {
+  margin-left: 0;
+}
+
+.obsidian-mdx-filetree-children {
+  margin-left: 1.25rem;
+  border-left: 1px solid var(--background-modifier-border);
+  padding-left: 0.75rem;
+}
+
+.obsidian-mdx-filetree-folder-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--text-normal);
+  width: 100%;
+  text-align: left;
+  border-radius: 4px;
+  transition: background-color 0.15s;
+}
+
+.obsidian-mdx-filetree-folder-name:hover {
+  color: var(--text-accent);
+  background-color: var(--background-modifier-hover);
+}
+
+.obsidian-mdx-filetree-file {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  color: var(--text-muted);
+}
+
+.obsidian-mdx-filetree-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
 }
