@@ -298,6 +298,18 @@
   color: rgb(248, 113, 113);
 }
 
+.obsidian-mdx-callout-important {
+  background-color: rgba(168, 85, 247, 0.1);
+  border-color: rgba(168, 85, 247, 0.3);
+  color: rgb(147, 51, 234);
+}
+
+.theme-dark .obsidian-mdx-callout-important {
+  background-color: rgba(168, 85, 247, 0.15);
+  border-color: rgba(168, 85, 247, 0.4);
+  color: rgb(192, 132, 252);
+}
+
 .obsidian-mdx-callout-success {
   background-color: rgba(34, 197, 94, 0.1);
   border-color: rgba(34, 197, 94, 0.3);
@@ -384,9 +396,10 @@
 /* ========== Cards ========== */
 .obsidian-mdx-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1rem;
   margin: 1.5rem 0;
+  align-items: start;
 }
 
 .obsidian-mdx-card {
@@ -395,6 +408,9 @@
   border-radius: 8px;
   background-color: var(--background-primary);
   transition: all 0.2s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .obsidian-mdx-card:hover {
@@ -430,6 +446,7 @@
   font-size: 0.875rem;
   color: var(--text-muted);
   line-height: 1.6;
+  flex: 1;
 }
 
 .obsidian-mdx-card-content > *:first-child {
@@ -502,6 +519,17 @@
   color: var(--text-normal);
 }
 
+.obsidian-mdx-step-body h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: var(--text-normal);
+}
+
+.obsidian-mdx-step-body h3:first-child {
+  margin-top: 0;
+}
+
 .obsidian-mdx-step-body > *:first-child {
   margin-top: 0;
 }
@@ -568,4 +596,55 @@
 .obsidian-mdx-filetree-icon {
   font-size: 1rem;
   flex-shrink: 0;
+}
+
+/* ========== Bleed ========== */
+.obsidian-mdx-bleed {
+  margin: 1.5rem calc(var(--file-line-width) * -0.1);
+  max-width: none;
+}
+
+.obsidian-mdx-bleed-full {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  width: 100vw;
+}
+
+.obsidian-mdx-bleed img,
+.obsidian-mdx-bleed video,
+.obsidian-mdx-bleed iframe {
+  width: 100%;
+  border-radius: 0;
+}
+
+/* ========== Table Component ========== */
+.obsidian-mdx-table {
+  width: 100%;
+  margin: 1.5rem 0;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--background-modifier-border);
+}
+
+.obsidian-mdx-table th,
+.obsidian-mdx-table td {
+  padding: 0.75rem;
+  border: 1px solid var(--background-modifier-border);
+  text-align: left;
+}
+
+.obsidian-mdx-table th {
+  background-color: var(--background-secondary);
+  font-weight: 600;
+  color: var(--text-normal);
+}
+
+.obsidian-mdx-table tbody tr:hover {
+  background-color: var(--background-modifier-hover);
+}
+
+.obsidian-mdx-table tbody tr:nth-child(even) {
+  background-color: var(--background-secondary-alt, var(--background-secondary));
 }

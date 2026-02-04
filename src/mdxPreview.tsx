@@ -10,7 +10,7 @@ import { CH } from '@code-hike/mdx/components'
 import theme from 'shiki/themes/github-dark.json'
 // @ts-ignore
 import remarkGfm from 'remark-gfm'
-import { Tabs, Tab, Callout, Aside, Cards, Card, Steps, Step, FileTree, Folder, File } from './components'
+import { Tabs, Tab, Callout, Aside, Cards, Card, Steps, Step, FileTree, Folder, File, Bleed, Table, Tr, Th, Td } from './components'
 
 export const MDX_PREVIEW = 'mdx-preview'
 
@@ -146,6 +146,11 @@ export class mdxPreview extends ItemView {
                   FileTree,
                   Folder,
                   File,
+                  Bleed,
+                  Table,
+                  Tr,
+                  Th,
+                  Td,
                 }} 
               />
             </div>

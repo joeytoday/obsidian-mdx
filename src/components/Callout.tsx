@@ -1,6 +1,6 @@
 import React from 'react'
 
-type CalloutType = 'info' | 'warning' | 'error' | 'success' | 'default'
+type CalloutType = 'info' | 'warning' | 'error' | 'success' | 'default' | 'important'
 
 interface CalloutProps {
   type?: CalloutType
@@ -16,15 +16,17 @@ const typeToEmoji: Record<CalloutType, string> = {
   error: '🚨',
   success: '✅',
   default: '💡',
+  important: '❗',
 }
 
-// Nextra 风格的标题（如果没有提供）
+// Nextra 风格的标题(如果没有提供)
 const typeToTitle: Record<CalloutType, string | undefined> = {
   info: undefined,
   warning: undefined,
   error: undefined,
   success: undefined,
   default: undefined,
+  important: undefined,
 }
 
 export function Callout({ type = 'default', emoji, title, children }: CalloutProps) {

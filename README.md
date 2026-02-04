@@ -24,7 +24,37 @@ This plugin provides full support for Code Hike. If you want to try it out, you 
 
 ### Nextra-style Components
 
+This plugin now supports all Nextra built-in components from the [official documentation](https://nextra.cndocs.org/docs/built-ins).
+
+#### Callout
+
+Supports all Nextra callout types: `default`, `info`, `warning`, `error`, `success`, and `important`.
+
+```mdx
+<Callout type="info">
+  This is an informational callout.
+</Callout>
+
+<Callout type="warning">
+  Be careful with this step!
+</Callout>
+
+<Callout type="error">
+  Something went wrong.
+</Callout>
+
+<Callout type="important">
+  Key information users need to know.
+</Callout>
+
+<Callout type="info" emoji="⭐">
+  Custom emoji callout!
+</Callout>
+```
+
 #### Tabs
+
+Supports Nextra's advanced features including `defaultIndex`, `storageKey`, and custom styling.
 
 ```mdx
 <Tabs items={['npm', 'yarn', 'pnpm']} defaultValue="npm">
@@ -44,26 +74,16 @@ This plugin provides full support for Code Hike. If you want to try it out, you 
     ```
   </Tab>
 </Tabs>
-```
 
-#### Callout
+<!-- With defaultIndex -->
+<Tabs items={['npm', 'pnpm', 'yarn']} defaultIndex={1}>
+  ...
+</Tabs>
 
-```mdx
-<Callout type="info" title="Information">
-  This is an informational callout.
-</Callout>
-
-<Callout type="warning" title="Warning">
-  Be careful with this step!
-</Callout>
-
-<Callout type="error" title="Error">
-  Something went wrong.
-</Callout>
-
-<Callout type="success" title="Success">
-  Operation completed successfully!
-</Callout>
+<!-- With localStorage persistence -->
+<Tabs items={['npm', 'pnpm', 'yarn']} storageKey="package-manager">
+  ...
+</Tabs>
 ```
 
 #### Cards
@@ -93,6 +113,47 @@ This plugin provides full support for Code Hike. If you want to try it out, you 
     You're ready to go!
   </Step>
 </Steps>
+```
+
+#### Bleed
+
+A component to expand content beyond the container's width.
+
+```mdx
+<!-- Slight overflow -->
+<Bleed>
+  ![Wide Image](./image.png)
+</Bleed>
+
+<!-- Full-width, edge-to-edge -->
+<Bleed full>
+  ![Full Width Image](./banner.png)
+</Bleed>
+```
+
+#### Table
+
+Nextra-style table component with enhanced styling.
+
+```mdx
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Feature</Table.Th>
+      <Table.Th>Supported</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>MDX Support</Table.Td>
+      <Table.Td>✅</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>Theming</Table.Td>
+      <Table.Td>✅</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
 ```
 
 #### FileTree

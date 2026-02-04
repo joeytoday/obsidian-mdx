@@ -34,3 +34,6 @@ export function Card({ title, icon, href, children }: CardProps) {
   
   return <div className="obsidian-mdx-card">{content}</div>
 }
+
+// 为了支持 Nextra 语法: <Cards.Card>
+Cards.Card = Card

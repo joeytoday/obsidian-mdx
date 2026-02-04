@@ -75,3 +75,7 @@ export function File({ name }: FileProps) {
     </div>
   )
 }
+
+// 为了支持 Nextra 语法: <FileTree.Folder>, <FileTree.File>
+FileTree.Folder = Folder
+FileTree.File = File
