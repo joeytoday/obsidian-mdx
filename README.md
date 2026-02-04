@@ -1,6 +1,13 @@
 # Obsidian MDX
 
-Preview [MDX](https://github.com/mdx-js/mdx/) in Obsidian, with support for [Code Hike](https://github.com/code-hike/codehike), [Nextra](https://nextra.site/), and [Astro](https://astro.build/) components.
+Preview [MDX](https://github.com/mdx-js/mdx/) in Obsidian, with support for [Code Hike](https://github.com/code-hike/codehike), [Nextra](https://nextra.site/)
+
+## Features
+
+- **MDX Preview**: Render MDX files directly in Obsidian with live preview
+- **Code Hike Integration**: Full support for interactive code walkthroughs
+- **Nextra Components**: Includes popular components like Callouts, Tabs, Cards, Steps, FileTree, and Tables
+- **Internationalization**: All code comments and documentation translated to English for broader accessibility
 
 ## Installation
 
@@ -102,16 +109,16 @@ Supports Nextra's advanced features including `defaultIndex`, `storageKey`, and 
 #### Steps
 
 ```mdx
+import { Steps } from 'nextra/components'
+
+## Getting Started Here is some description.
+
 <Steps>
-  <Step title="Install the package">
-    Run `npm install` to install dependencies.
-  </Step>
-  <Step title="Configure the plugin">
-    Add the plugin to your configuration file.
-  </Step>
-  <Step title="Start using it">
-    You're ready to go!
-  </Step>
+### Step 1
+	Contents for step 1. 
+
+### Step 2
+	Contents for step 2.
 </Steps>
 ```
 
@@ -172,34 +179,6 @@ Nextra-style table component with enhanced styling.
   <File name="README.md" />
 </FileTree>
 ```
-
-### Astro-style Components
-
-#### Aside
-
-```mdx
-<Aside type="note" title="Note">
-  This is a note aside.
-</Aside>
-
-<Aside type="tip">
-  Here's a helpful tip!
-</Aside>
-
-<Aside type="caution">
-  Be cautious about this.
-</Aside>
-
-<Aside type="danger">
-  This is a dangerous operation.
-</Aside>
-```
-
-> **Note:** `Aside` is an alias for `Callout` with Astro-style API (`type="note|tip|caution|danger"`).
-
-## Contributing
-
-If you would like to contribute to this project, please open an issue or submit a pull request.
 
 ## License
 
