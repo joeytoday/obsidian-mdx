@@ -9,7 +9,7 @@ interface CalloutProps {
   children: React.ReactNode
 }
 
-// Nextra 风格的默认图标
+// Nextra-style default icons
 const typeToEmoji: Record<CalloutType, string> = {
   info: 'ℹ️',
   warning: '⚠️',
@@ -19,7 +19,7 @@ const typeToEmoji: Record<CalloutType, string> = {
   important: '❗',
 }
 
-// Nextra 风格的标题(如果没有提供)
+// Nextra-style titles (if not provided)
 const typeToTitle: Record<CalloutType, string | undefined> = {
   info: undefined,
   warning: undefined,
@@ -50,15 +50,15 @@ export function Callout({ type = 'default', emoji, title, children }: CalloutPro
   )
 }
 
-// Astro 风格别名
-export function Aside({ 
-  type = 'note', 
+// Astro-style alias
+export function Aside({
+  type = 'note',
   title,
-  children 
-}: { 
+  children
+}: {
   type?: 'note' | 'tip' | 'caution' | 'danger'
   title?: string
-  children: React.ReactNode 
+  children: React.ReactNode
 }) {
   const typeMap: Record<string, { calloutType: CalloutType; defaultTitle: string }> = {
     note: { calloutType: 'info', defaultTitle: 'Note' },

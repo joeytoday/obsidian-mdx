@@ -7,12 +7,12 @@ interface StepsProps {
 export function Steps({ children }: StepsProps) {
   const childArray = React.Children.toArray(children)
   
-  // 将 children 按 h3 分组
+  // Group children by h3 headings
   const groupedSteps: React.ReactNode[][] = []
   let currentGroup: React.ReactNode[] = []
   
   childArray.forEach((child) => {
-    // 如果是显式的 Step 组件,作为独立的 step
+    // If it's an explicit Step component, treat as independent step
     if (React.isValidElement(child) && (child.type === Step || (child.type as any)?.name === 'Step')) {
       if (currentGroup.length > 0) {
         groupedSteps.push(currentGroup)
@@ -22,25 +22,25 @@ export function Steps({ children }: StepsProps) {
       return
     }
     
-    // 检查是否是 h3 元素
+    // Check if it's an h3 element
     const isH3 = React.isValidElement(child) && 
                  (child.type === 'h3' || 
                   (typeof child.type === 'string' && child.type === 'h3'))
     
     if (isH3) {
-      // 遇到新的 h3,保存之前的组并开始新组
+      // When encountering new h3, save previous group and start new group
       if (currentGroup.length > 0) {
         groupedSteps.push(currentGroup)
       }
       currentGroup = [child]
     } else if (currentGroup.length > 0) {
-      // 如果已经有 h3,将内容添加到当前组
+      // If there's already an h3, add content to current group
       currentGroup.push(child)
     }
-    // 否则忽略(h3 之前的内容)
+    // Otherwise ignore (content before h3)
   })
   
-  // 添加最后一组
+  // Add the last group
   if (currentGroup.length > 0) {
     groupedSteps.push(currentGroup)
   }
@@ -48,14 +48,14 @@ export function Steps({ children }: StepsProps) {
   return (
     <div className="obsidian-mdx-steps">
       {groupedSteps.map((group, index) => {
-        // 如果组中只有一个 Step 组件,直接渲染
+        // If group contains only one Step component, render directly
         if (group.length === 1 && 
             React.isValidElement(group[0]) && 
             (group[0].type === Step || (group[0].type as any)?.name === 'Step')) {
           return <React.Fragment key={index}>{group[0]}</React.Fragment>
         }
         
-        // 否则包装成 step
+        // Otherwise wrap as step
         return (
           <div key={index} className="obsidian-mdx-step">
             <div className="obsidian-mdx-step-marker"></div>
@@ -85,5 +85,5 @@ export function Step({ title, children }: StepProps) {
   )
 }
 
-// 为了支持 Nextra 语法: <Steps.Step>
+// To support Nextra syntax: <Steps.Step>
 Steps.Step = Step

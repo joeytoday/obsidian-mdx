@@ -48,7 +48,7 @@ export function Td({ children, className = '', ...props }: TableTdProps) {
   )
 }
 
-// 为了支持 Nextra 语法: <Table.Tr>, <Table.Th>, <Table.Td>
+// To support Nextra syntax: <Table.Tr>, <Table.Th>, <Table.Td>
 Table.Tr = Tr
 Table.Th = Th
 Table.Td = Td

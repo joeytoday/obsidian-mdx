@@ -19,41 +19,41 @@ export type MDXPreviewState = {
   basename: string
 }
 
-// 预处理 MDX 内容
+// Preprocess MDX content
 function preprocessMdxContent(content: string): string {
   let processed = content
-  
-  // 1. 移除 YAML front-matter (--- ... ---)
+
+  // 1. Remove YAML front-matter (--- ... ---)
   processed = processed.replace(/^---\s*\n[\s\S]*?\n---\s*\n?/, '')
-  
-  // 2. 移除 nextra/components 的导入
+
+  // 2. Remove nextra/components imports
   processed = processed.replace(
     /import\s+\{[^}]*\}\s+from\s+['"]nextra\/components['"]\s*;?\s*\n?/g,
     ''
   )
-  
-  // 3. 移除 @astrojs/starlight/components 的导入
+
+  // 3. Remove @astrojs/starlight/components imports
   processed = processed.replace(
     /import\s+\{[^}]*\}\s+from\s+['"]@astrojs\/starlight\/components['"]\s*;?\s*\n?/g,
     ''
   )
-  
-  // 4. 移除其他常见的组件库导入
+
+  // 4. Remove other common component library imports
   processed = processed.replace(
     /import\s+\{[^}]*\}\s+from\s+['"]nextra\/components\/[^'"]+['"]\s*;?\s*\n?/g,
     ''
   )
-  
-  // 5. 移除通用的 'nextra' 导入
+
+  // 5. Remove generic 'nextra' imports
   processed = processed.replace(
     /import\s+\{[^}]*\}\s+from\s+['"]nextra['"]\s*;?\s*\n?/g,
     ''
   )
-  
+
   return processed
 }
 
-// 错误边界组件
+// Error Boundary Component
 class ErrorBoundary extends React.Component<
   { children: React.ReactNode },
   { hasError: boolean; error: Error | null }
@@ -71,7 +71,7 @@ class ErrorBoundary extends React.Component<
     if (this.state.hasError) {
       return (
         <div className="obsidian-mdx-error">
-          <h3>⚠️ MDX 渲染错误</h3>
+          <h3>⚠️ MDX Rendering Error</h3>
           <pre>{this.state.error?.message}</pre>
         </div>
       )
@@ -115,7 +115,7 @@ export class mdxPreview extends ItemView {
       const { default: MDXContent } = await evaluate(processedContent, {
         ...runtime,
         remarkPlugins: [
-          remarkGfm,  // 支持表格、删除线、任务列表等 GFM 特性
+          remarkGfm,  // Support GFM features like tables, strikethrough, task lists, etc.
           [
             remarkCodeHike,
             {
@@ -161,7 +161,7 @@ export class mdxPreview extends ItemView {
       this.root = ReactDOM.createRoot(this.containerEl.children[1])
       this.root.render(
         <div className="obsidian-mdx-error">
-          <h3>⚠️ MDX 编译错误</h3>
+          <h3>⚠️ MDX Compilation Error</h3>
           <pre>{error?.message || String(error)}</pre>
         </div>
       )

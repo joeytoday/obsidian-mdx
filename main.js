@@ -67468,7 +67468,7 @@ var ErrorBoundary = class extends import_react10.default.Component {
   render() {
     var _a;
     if (this.state.hasError) {
-      return /* @__PURE__ */ import_react10.default.createElement("div", { className: "obsidian-mdx-error" }, /* @__PURE__ */ import_react10.default.createElement("h3", null, "\u26A0\uFE0F MDX \u6E32\u67D3\u9519\u8BEF"), /* @__PURE__ */ import_react10.default.createElement("pre", null, (_a = this.state.error) == null ? void 0 : _a.message));
+      return /* @__PURE__ */ import_react10.default.createElement("div", { className: "obsidian-mdx-error" }, /* @__PURE__ */ import_react10.default.createElement("h3", null, "\u26A0\uFE0F MDX Rendering Error"), /* @__PURE__ */ import_react10.default.createElement("pre", null, (_a = this.state.error) == null ? void 0 : _a.message));
     }
     return this.props.children;
   }
@@ -67504,7 +67504,7 @@ var mdxPreview = class extends import_obsidian.ItemView {
         ...runtime,
         remarkPlugins: [
           remarkGfm,
-          // 支持表格、删除线、任务列表等 GFM 特性
+          // Support GFM features like tables, strikethrough, task lists, etc.
           [
             attacher,
             {
@@ -67545,7 +67545,7 @@ var mdxPreview = class extends import_obsidian.ItemView {
     } catch (error) {
       this.root = import_client.default.createRoot(this.containerEl.children[1]);
       this.root.render(
-        /* @__PURE__ */ import_react10.default.createElement("div", { className: "obsidian-mdx-error" }, /* @__PURE__ */ import_react10.default.createElement("h3", null, "\u26A0\uFE0F MDX \u7F16\u8BD1\u9519\u8BEF"), /* @__PURE__ */ import_react10.default.createElement("pre", null, (error == null ? void 0 : error.message) || String(error)))
+        /* @__PURE__ */ import_react10.default.createElement("div", { className: "obsidian-mdx-error" }, /* @__PURE__ */ import_react10.default.createElement("h3", null, "\u26A0\uFE0F MDX Compilation Error"), /* @__PURE__ */ import_react10.default.createElement("pre", null, (error == null ? void 0 : error.message) || String(error)))
       );
     }
   }
